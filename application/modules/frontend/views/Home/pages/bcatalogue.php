@@ -3,11 +3,22 @@
 	background:#fff !important;
 }
 </style>
-<div class="book_wrapper">
+<!--<div class="book_wrapper">
 	<div id="loading" class="loading">Loading pages...</div>
 	<a id="next_page_button"></a>
-	<a id="prev_page_button"></a>
-	<div id="mybook" style="display:none;">
+	<a id="prev_page_button"></a>-->
+	<div id="flip-book-window" tabindex="-1" aria-labelledby="headerLabel" style="height: 700px !important;width: 750px !important;">
+  		<div class="modal-dialog" role="document">
+    		<div class="modal-content">
+      			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+      			<div class="modal-body">
+        			<div class="mount-node">
+        			</div>
+      			</div>
+    		</div>
+  		</div>
+  	</div>
+	<!--<div id="mybook" style="display:none;">
 		<div class="b-load row">
 <?php foreach ($products as $key=>$product) { ?>
 	<div>
@@ -71,5 +82,5 @@
 <?php } ?>
 </div>
 </div>
+</div>-->
 
-</div>

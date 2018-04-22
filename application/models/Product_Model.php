@@ -952,7 +952,7 @@ class Product_Model extends CI_Model {
     	$this->db->join(TABLES::$BUSINESS_INFO.' AS b','a.busi_id=b.id','left');
     	$this->db->join(TABLES::$BUSINESS_INFO_IMAGE.' AS g','g.busi_id=b.id','left');
     	$this->db->join(TABLES::$USER_INFO.' AS c','a.id=c.user_id','left');
-    	$this->db->join(TABLES::$COMPANY_INFO.' AS d','a.id=d.busi_id','left');
+    	$this->db->join(TABLES::$COMPANY_INFO.' AS d','a.busi_id=d.busi_id','left');
     	$this->db->join(TABLES::$USER_SUBCATEGORIES.' AS e','e.id=a.user_subcategory_id','inner');
     	$this->db->join(TABLES::$FACTORY_INFO.' AS h','h.busi_id=a.busi_id','left');
     	$this->db->join(TABLES::$COUNTRY.' AS i','i.name=b.company_country','left');

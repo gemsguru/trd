@@ -342,7 +342,7 @@ class Vedio extends MX_Controller {
 		$keyword = $params['keyword'];
 		if(empty($params)) {
 			if(!empty($_COOKIE['seller_keywd'])) {
-				$params['keyword'] = $_COOKIE['video_keywd'];
+				$params['keyword'] = $_COOKIE['seller_keywd'];
 			}
 		} else {
 			setcookie('video_keywd', $params['keyword'], time() + (86400 * 30), "/");
@@ -362,9 +362,9 @@ class Vedio extends MX_Controller {
 		$this->template->set ( 'Country', $Country);
 		$featuredSellers = $this->sellers->getFeaturedWorldSeller();
 		$this->template->set ( 'featuredSellers', $featuredSellers);
-		$featuredProductVideo= $this->sellers->getFeaturedProductVideo();
+		$featuredProductVideo= $this->account->getFeaturedProductVideo();
 		$this->template->set ( 'featuredProductVideo', $featuredProductVideo);
-		$featuredProducts = $this->sellers->getFeaturedProduct();
+		$featuredProducts = $this->account->getFeaturedProduct();
 		$maincats = $this->product->getActiveProductMainAndSubCategories();
 		unset($params['community_only']);
 		unset($params['community_hide']);

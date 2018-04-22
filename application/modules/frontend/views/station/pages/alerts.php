@@ -172,7 +172,7 @@
 				<span style="color:#FFFFFF;font-family:Arial;font-size:12px;">Offers</span>
 			</div>
 			<div id="RollOver56" style="position: absolute; left: 74px; top: 625px; overflow: hidden; width: 50%; height: 40px; z-index: 1699">
-				<a href="javascript:sellerOrder();" target="_blank"> <img class="hover" alt=""
+				<a onclick="javascript:sellerOrder();" target="_blank"> <img class="hover" alt=""
 					src="<?php echo asset_url();?>images/My-order-color.png" style="width:40px;"> <span><img
 						alt="" src="<?php echo asset_url();?>images/My-order.png" style="width:40px;"></span>
 				</a>

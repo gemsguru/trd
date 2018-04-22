@@ -1039,18 +1039,18 @@ h1{
 	z-index:92;
 }
 .style15{
-	position:absolute;
+	position:relative;
 	text-align:left;
 	left:2px;
-	top:247px;
+	/*top:247px;*/
 	width:209px;
 	height:65px;
 	z-index:93;
 }
 .style16{
-	position:absolute;
+	position:relative;
 	left:75px;
-	top:8px;
+	/*top:8px;*/
 	width:126px;
 	height:14px;
 	z-index:86;
@@ -1062,16 +1062,16 @@ h1{
 	font-size:12px;
 }
 .style18{
-	position:absolute;
+	position:relative;
 	text-align:left;
 	left:27px;
-	top:10px;
+	/*top:10px;*/
 	width:35px;
 	height:26px;
 	z-index:88;
 }
 .style19{
-	position:absolute;
+	position:relative;
 	left:3px;
 	top:1px;
 	width:30px;
@@ -1094,7 +1094,7 @@ h1{
 	color:#000000;font-family:Arial;font-size:12px;
 }
 .style22{
-	position:absolute;text-align:left;visibility:hidden;left:2px;top:244px;width:209px;height:46px;z-index:94;
+	position:relative;text-align:left;visibility:hidden;left:2px;top:-140px;width:209px;height:46px;z-index:94;
 }
 .style23{
 	position:absolute;left:65px;top:6px;width:35px;height:35px;z-index:90;
@@ -1322,9 +1322,9 @@ a{
 }
 
 .style17{
-	position:absolute;
+	position:relative;
 	left:75px;
-	top:23px;
+	/*top:23px;*/
 	width:130px;
 	height:15px;
 	z-index:87;
@@ -7288,3 +7288,21 @@ a.style5:hover
    text-decoration: underline;
 }
 
+.class1 {
+	position:absolute;
+	text-align:center;
+	left:-600px;
+	top:-130px;
+	width:308px;
+	height:561px;
+	z-index:1303;
+	visibility:hidden;
+	background-color: #FAFAFA;
+    background-image: url(images/windowphoto.png);
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: cover;
+    -moz-box-shadow: 3px 3px 10px #000000;
+    -webkit-box-shadow: 3px 3px 10px #000000;
+    box-shadow: 3px 3px 10px #000000;
+}

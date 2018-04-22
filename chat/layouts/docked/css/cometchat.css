@@ -1263,9 +1263,9 @@ textarea.cometchat_textarea {
     }
 
     .cometchat_pluginsdropdown_arrowrotate {
-        -ms-transform: rotate(90deg);
+        /*-ms-transform: rotate(90deg);  COMMENTED BY VCOMMERS
         -webkit-transform: rotate(90deg);
-        transform: rotate(90deg);
+        transform: rotate(90deg);*/
     }
 
     .cometchat_chatboxmessagecontent {
@@ -1501,7 +1501,8 @@ textarea.cometchat_textarea {
     filter: opacity(70%);
     -khtml-opacity: 0.7;
     opacity: 0.7;
-    background: url(<?php echo STATIC_CDN_URL; ?>layouts/<?php echo $layout;?>/images/cometchat_plugins_dropdown_icon.svg) no-repeat top left;
+    /*background: url(<?php echo STATIC_CDN_URL; ?>layouts/<?php echo $layout;?>/images/cometchat_plugins_dropdown_icon.svg) no-repeat top left;*/
+    background: url(<?php echo STATIC_CDN_URL; ?>images/Arrow-menu.png) no-repeat top left;/*MODIFIED BY VCOMMERS*/
     background-position: 0px !important;
     height: 20px;
     width: 13px;

@@ -42,7 +42,7 @@ foreach($videodetail as $videoBox) {?>
 	</div>
 </div>
 <div id="wb_Image43" class="class23">
-	<a href="#" onclick="ShowObject('Layer_details', 0);StopAudio('MediaPlayer7');return false;">
+	<a href="#" onclick="ShowObject('Layer_details3', 0);ShowObject('Layer_details', 0);StopAudio('MediaPlayer7');return false;">
 		<img src="<?php echo asset_url(); ?>images/close.png" id="Image43" alt="">
 	</a>
 </div>

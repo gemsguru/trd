@@ -35,9 +35,9 @@ class Product extends MX_Controller {
 		$this->template->set ( 'Country', $Country);
 		$featuredSellers = $this->sellers->getFeaturedWorldSeller();
 		$this->template->set ( 'featuredSellers', $featuredSellers);
-		$featuredProductVideo= $this->sellers->getFeaturedProductVideo();
+		$featuredProductVideo= $this->account->getFeaturedProductVideo();
 		$this->template->set ( 'featuredProductVideo', $featuredProductVideo);
-		$featuredProducts = $this->sellers->getFeaturedProduct();
+		$featuredProducts = $this->account->getFeaturedProduct();
 		$this->template->set ( 'featuredProducts', $featuredProducts);
 		$procategories = $this->general->getProductCategories();
 		$this->template->set ( 'categories', $procategories);

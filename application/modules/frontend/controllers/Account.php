@@ -50,13 +50,12 @@ class Account extends MX_Controller {
 				'company_name' => $name,
 				'created_date' => date('Y-m-d H:i:s'),
 				'is_disable' => 0,
-				'is_deleted' => 0,
-				
+				'is_deleted' => 0
 		);
-		if($catergory== 3) {
+		if($catergory == 3) {
 			$business['message_flag'] = 1;
 		}
-		
+	
 		$busi_id = $this->Account_Model->insertBuisnessInfo($business);
 		$data = array(
 				'busi_id' => $busi_id,
@@ -73,17 +72,17 @@ class Account extends MX_Controller {
 		$this->session->set_userdata('catid',$catergory);
 		$this->session->set_userdata('subcatid',$subCatergory);
 		$lastInsertId = $this->Account_Model->insertIntoUsers($data);
-		$this->sendMail($email, $activationCode, $name);
+		$emailData = array('action'=>'account_activation','activation_code'=>$activationCode,'name'=>$name);
+		$this->sendMail($email, $emailData);
 		$this->load->library('mylib/General');
 		$captcha = $this->general->createCaptcha('signup');
-		
+	
 		$this->template->set ( 'captcha', $captcha);
 		$this->template->set ( 'userid', $lastInsertId);
 		$this->template->set ( 'busi_id', $busi_id);
 		$this->template->set ( 'page', 'registration' );
 		$this->template->set_theme('default_theme');
-		$this->template->set_layout (false)
-		->title ( 'TreadStation' );
+		$this->template->set_layout (false)->title ( 'TreadStation' );
 		$this->template->build ('register/register_step_two');
 	}
 	
@@ -852,7 +851,26 @@ class Account extends MX_Controller {
 		$this->template->build ('register/trade');
 	}
 	
-	public function sendMail($email, $activation_code, $name) {
+	public function sendMail($email, $emailData) {
+
+		$emailAction = $emailData['action'];
+		switch($emailAction) {
+			case 'account_activation';
+			$subject = 'TradeStation Account Activation';
+			$this->template->set('templateType','account_activation');
+			$this->template->set ('name', $emailData['name']);
+			$this->template->set ('activationCode', $emailData['activation_code']);
+			break;
+			case 'passwordRecovery':
+				$subject = 'TrdStation Password Recovery';
+				$this->template->set('templateType','passwordRecovery');
+				$this->template->set ('name', $emailData['name']);
+				$this->template->set ('activationCode', $emailData['activation_code']);
+				$this->template->set ( 'prefix', $emailData['prefix']);
+				break;
+			default:
+				break;
+		}
 		$config = Array(
 				'protocol' => 'smtp',
 				'smtp_host' => 'ssl://smtp.googlemail.com',
@@ -863,27 +881,26 @@ class Account extends MX_Controller {
 				'charset' => 'iso-8859-1',
 				'wordwrap' => TRUE
 				);
-		
-		$message = "Hi $name, \n
-		Your account activation code is $activation_code.\r\n
-		Thanks\n
-		TrdStation Team";
+	
+		$this->template->set_layout (false);
+		$message = $this->template->build ('default/email_template','',true);
 		$this->load->library('email', $config);
+		$this->email->set_mailtype("html");
 		$this->email->set_newline("\r\n");
 		$this->email->from('mytrdstation@gmail.com'); // change it to yours
 		$this->email->to($email); // change it to yours
-		$this->email->subject('TradeStation Account Activation');
+		$this->email->subject($subject);
 		$this->email->message($message);
-		$this->email->send();
-// 		if ($this->email->send()) {
-// 			return 'Email sent.';
-// 		} else {
-// 			show_error($this->email->print_debugger());
-// 		}
+		if ($this->email->send()) {
+			echo 'sent';
+		} else {
+			//show_error($this->email->print_debugger());
+			echo "fail";
+		}
 	}
-	public function forgetsendMail() 
+
+	public function forgetsendMail()
 	{
-		
 		$this->load->model('Account_Model');
 		$email 		    = $_POST['email'];
 		$userdetail     = $this->Account_Model->emailExist($email);
@@ -892,33 +909,9 @@ class Account extends MX_Controller {
 		$prifix 	    = $userdetail['name_prefix'];
 		$securityCode   = getHash(5);
 		$activationCode = $this->Account_Model->setValue($userdetail['id'],'activation_code',$securityCode);
-		$config 	    = Array(
-							'protocol'  => 'smtp',
-							'smtp_host' => 'ssl://smtp.googlemail.com',
-							'smtp_port' => 465,
-							'smtp_user' => 'mytrdstation@gmail.com', // change it to yours
-							'smtp_pass' => 'tradestation123', // change it to yours
-							'mailtype'  => 'html',
-							'charset'   => 'iso-8859-1',
-							'wordwrap'  => TRUE
-					    );
-		$message 	= "Hi $prifix $name,<br><br>"
-			           ."Your password Recovery Code is : <b>".$securityCode."</b><br><br><br>"
-					   ."Thanks<br>"
-					   ."TrdStation Team";
 
-		$this->load->library('email', $config);
-		$this->email->set_newline("\r\n");
-		$this->email->from('mytrdstation@gmail.com','Trade Station'); // change it to yours
-		$this->email->to($email); // change it to yours
-		$this->email->subject('TrdStation Password Recovery');
-		$this->email->message($message);
-		if ($this->email->send()) {
-			echo 'sent';
-		} else {
-			//show_error($this->email->print_debugger());
-			echo "fail";
-		}
+		$emailData = array('action'=>'passwordRecovery','prefix'=> $prifix,'name' =>$name,'activation_code'=> $securityCode);
+		return $this->sendMail($email, $emailData);
 	}
 	
 	public function save_trade_info() {

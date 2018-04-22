@@ -1,5 +1,5 @@
 <div id="wb_Image51" style="position:absolute;left:262px;top:8px;width:35px;height:35px;z-index:1297;">
-	<a href="#" onclick="ShowObjectWithEffect('Layer_details', 0, 'scale', 500, 'swing');return false;">
+	<a href="#" onclick="ShowObjectWithEffect('Layer_details', 0, 'scale', 500, 'swing');ShowObjectWithEffect('Layer_details2', 0, 'scale', 500, 'swing');return false;">
 		<img src="<?php echo asset_url();?>images/close.png" id="Image51" alt="Close">
 	</a>
 </div>
@@ -66,7 +66,7 @@ foreach($productdetail as $productBox) {?>
 	<?php } ?>
 </div>
 <div id="RollOver68" style="position:absolute;left:53px;top:521px;overflow:hidden;width:35px;height:35px;z-index:1298">
-	<a href="<?php echo base_url();?>products/details/<?php echo $productBox['id'];?>" target="_blank">
+	<a href="<?php echo base_url();?>products/details/<?php echo $productBox['product_id'];?>" target="_blank">
 		<img class="hover" alt="" title="View details" src="<?php echo asset_url(); ?>images/viewroll.png">
 		<span><img alt="" title="View details" src="<?php echo asset_url(); ?>images/view2.png"></span>
 	</a>
@@ -78,13 +78,13 @@ foreach($productdetail as $productBox) {?>
 	</a>
 </div>
 <div id="RollOver70" style="position:absolute;left:169px;top:521px;overflow:hidden;width:35px;height:35px;z-index:1300">
-	<a href="javascript:addToMyFavourite(<?php echo $productBox['id'];?>,4);">
+	<a href="javascript:addToMyFavourite(<?php echo $productBox['product_id'];?>,4);">
 		<img class="hover" alt="" title="Add to watch later" src="<?php echo asset_url(); ?>images/addtofavroll.png">
 		<span><img alt="" title="Add to watch later" src="<?php echo asset_url(); ?>images/addtofav.png"></span>
 	</a>
 </div>
 <div id="RollOver71" style="position:absolute;left:227px;top:521px;overflow:hidden;width:35px;height:35px;z-index:1301">
-	<a href="javascript:addToItemToCart(<?php echo $productBox['id'];?>)">
+	<a href="javascript:addToItemToCart(<?php echo $productBox['product_id'];?>)">
 		<img class="hover" alt="" title="Add to my cart" src="<?php echo asset_url(); ?>images/addtocartroll.png">
 		<span><img alt="" title="Add to my cart" src="<?php echo asset_url(); ?>images/addtocart.png"></span>
 	</a>

@@ -669,10 +669,12 @@ class Account_Model extends CI_Model {
 	}
 	public function getDesksites()
 	{
-		$this->db->select('a.*, b.desksite_bg1, b.desksite_bg2, c.company_introduction');
+		$this->db->select('a.*, b.desksite_bg1, b.desksite_bg2, c.company_introduction,CONCAT(p.name) as product_name');
 		$this->db->from(TABLES::$BUSINESS_INFO.' as a');
 		$this->db->join(TABLES::$BUSINESS_INFO_IMAGE.' as b', 'a.id = b.busi_id', 'left');
 		$this->db->join(TABLES::$COMPANY_INFO.' as c', 'a.id = c.busi_id', 'left');
+		$this->db->join(TABLES::$PRODUCT_ITEM.' as p', 'a.id = p.busi_id', 'left');
+		$this->db->order_by('a.plan_id',"desc");
 		$this->db->limit(12);
 		$query = $this->db->get();
 		$row = $query->result_array();
@@ -680,10 +682,13 @@ class Account_Model extends CI_Model {
 	}
 	public function get3DProducts()
 	{
-		$this->db->select('a.*, b.*, c.company_name , c.company_country , c.company_province, c.gaurantee_period, c.plan_id, c.is_logo_verified, c.rank');
-		$this->db->from(TABLES::$FEATURED_3DPRODUCT.' as a');
-		$this->db->join(TABLES::$PRODUCT_ITEM.' as b', 'b.id = a.product3d_id', 'left');
+		$this->db->select('a.*, b.name,b.unit_price,b.model_no,b.quantity,b.unit,b.main_image,b.about,b.description,c.company_name , c.company_country , c.company_province, c.gaurantee_period, c.plan_id, c.is_logo_verified, c.rank');
+		$this->db->from(TABLES::$MY_3DPRODUCT.' as a');
+		//$this->db->from(TABLES::$FEATURED_3DPRODUCT.' as a');
+		$this->db->join(TABLES::$PRODUCT_ITEM.' as b', 'b.id = a.product_id', 'left');
 		$this->db->join(TABLES::$BUSINESS_INFO.' as c' , 'c.id = a.busi_id', 'left');
+		$this->db->where('c.plan_id !=', 1);
+		$this->db->order_by('c.plan_id',"desc");
 		$this->db->limit(12);
 		$query = $this->db->get();
 		$row = $query->result_array();
@@ -691,11 +696,13 @@ class Account_Model extends CI_Model {
 	}
 	public function getVCatalogue()
 	{
-		$this->db->select('a.*, b.*,  c.company_name , c.company_country , c.company_province, c.gaurantee_period, c.plan_id, c.is_logo_verified, c.rank ');
-		$this->db->from(TABLES::$FEATURED_CATALOGUE.' as a');
-		$this->db->join(TABLES::$PRODUCT_CATALOGUE.' as b' , 'b.id = a.catalogue_id', 'left');
-		$this->db->join(TABLES::$BUSINESS_INFO.' as c' , 'c.id = a.busi_id', 'left');
+		$this->db->select('b.*,  c.company_name , c.company_country , c.company_province, c.gaurantee_period, c.plan_id, c.is_logo_verified, c.rank ');
+		//$this->db->from(TABLES::$FEATURED_CATALOGUE.' as a');
+		$this->db->from(TABLES::$PRODUCT_CATALOGUE.' as b'/* , 'b.id = a.catalogue_id', 'left'*/);
+		$this->db->join(TABLES::$BUSINESS_INFO.' as c' , 'c.id = b.busi_id', 'left');
 		$this->db->where('b.status', 1);
+		$this->db->where('c.plan_id !=', 1);
+		$this->db->order_by('c.plan_id',"desc");
 		$this->db->limit(12);
 		$query = $this->db->get();
 		$row = $query->result_array();
@@ -703,12 +710,14 @@ class Account_Model extends CI_Model {
 	}
 	public function getFeaturedProduct()
 	{
-		$this->db->select('a.*, b.*, c.company_name , c.company_country , c.company_province, c.gaurantee_period, c.plan_id, c.is_logo_verified, c.rank');
-		$this->db->from(TABLES::$FEATURED_PRODUCT.' as a');
-		$this->db->join(TABLES::$PRODUCT_ITEM.' as b', ' b.id = a.item_id ', 'left');
-		$this->db->join(TABLES::$BUSINESS_INFO.' as c' , 'c.id = a.busi_id', 'left');
-		$this->db->where ( 'NOW() BETWEEN a.from_date AND a.to_date');
-		$this->db->where('a.status', 1);
+		$this->db->select('b.*, c.company_name , c.company_country , c.company_province, c.gaurantee_period, c.plan_id, c.is_logo_verified, c.rank');
+		//$this->db->from(TABLES::$FEATURED_PRODUCT.' as a');
+		$this->db->from(TABLES::$PRODUCT_ITEM.' as b'/*, ' b.id = a.item_id ', 'left'*/);
+		$this->db->join(TABLES::$BUSINESS_INFO.' as c' , 'c.id = b.busi_id', 'left');
+		//$this->db->where ( 'NOW() BETWEEN a.from_date AND a.to_date');
+		//$this->db->where('a.status', 1);
+		$this->db->where('c.plan_id !=', 1);
+		$this->db->order_by('c.plan_id',"desc");
 		$this->db->limit(12);
 		$query = $this->db->get();
 		$row = $query->result_array();
@@ -716,13 +725,15 @@ class Account_Model extends CI_Model {
 	}
 	public function getFeaturedProductVideo()
 	{
-		$this->db->select('a.*, b.*,c.*, d.company_name , d.company_country , d.company_province, d.gaurantee_period, d.plan_id, d.is_logo_verified, d.rank');
-		$this->db->from(TABLES::$FEATURED_PRODUCT_VIDEO.' as a');
-		$this->db->join(TABLES::$PRODUCT_VIDEO.' as c', ' c.id = a.video_id ', 'left');
+		$this->db->select('b.*,c.*, d.company_name , d.company_country , d.company_province, d.gaurantee_period, d.plan_id, d.is_logo_verified, d.rank');
+		//$this->db->from(TABLES::$FEATURED_PRODUCT_VIDEO.' as a');
+		$this->db->from(TABLES::$PRODUCT_VIDEO.' as c'/*, ' c.id = a.video_id ', 'left'*/);
 		$this->db->join(TABLES::$PRODUCT_ITEM.' as b', ' b.id = c.product_item_id ', 'left');
-		$this->db->join(TABLES::$BUSINESS_INFO.' as d' , 'd.id = a.busi_id', 'left');
-		$this->db->where ( 'NOW() BETWEEN a.from_date AND a.to_date');
-		$this->db->where('a.status', 1);
+		$this->db->join(TABLES::$BUSINESS_INFO.' as d' , 'd.id = c.busi_id', 'left');
+		//$this->db->where ( 'NOW() BETWEEN a.from_date AND a.to_date');
+		//$this->db->where('a.status', 1);
+		$this->db->where('d.plan_id !=', 1);
+		$this->db->order_by('d.plan_id',"desc");
 		$this->db->limit(12);
 		$query = $this->db->get();
 		$row = $query->result_array();
@@ -730,20 +741,23 @@ class Account_Model extends CI_Model {
 	}
 	public function getFeaturedWorldSeller()
 	{
-		$this->db->select('a.*, b.id, b.company_country, b.company_province, d.company_owner_name, d.company_introduction, d.contact_person, e.name as contact_person_name, e.picture, e.position,i.flag');
-		$this->db->from(TABLES::$FEATURED_WORLD_SELLER.' as a');
-		$this->db->join(TABLES::$BUSINESS_INFO.' as b', 'a.busi_id = b.id', 'left');
+		$this->db->select('f.id, b.company_country, b.company_province, d.company_owner_name, d.company_introduction, d.contact_person, e.name as contact_person_name, e.picture, e.position,i.flag,f.busi_id,a.name as product_name');
+		//$this->db->from(TABLES::$FEATURED_WORLD_SELLER.' as a');
+		$this->db->from(TABLES::$USER.' AS f'/*, 'b.id= f.busi_id', 'left'*/);
+		$this->db->join(TABLES::$BUSINESS_INFO.' as b', 'f.busi_id = b.id', 'left');
 		$this->db->join(TABLES::$BUSINESS_INFO_IMAGE.' as c', 'b.id = c.busi_id', 'left');
 		$this->db->join(TABLES::$COMPANY_INFO.' as d', 'b.id = d.busi_id', 'left');
-		$this->db->join(TABLES::$CONTACTPERSON.' as e', 'b.id = d.busi_id', 'left');
-		$this->db->join(TABLES::$USER.' AS f', 'b.id= f.busi_id', 'left');
+		$this->db->join(TABLES::$CONTACTPERSON.' as e', 'b.id = e.busi_id', 'left');
 		$this->db->join(TABLES::$COUNTRY.' AS i','b.company_country=i.name','left');
-		$this->db->where ( 'NOW() BETWEEN a.start_date AND a.end_date');
+		$this->db->join(TABLES::$PRODUCT_ITEM.' as a', 'b.id = a.busi_id', 'left');
+		//$this->db->where ( 'NOW() BETWEEN a.start_date AND a.end_date');
 		$this->db->where('f.user_category_id', 1);
-		$this->db->where('b.is_logo_verified', 1);
+		//$this->db->where('b.is_logo_verified', 1);
 		$this->db->where('b.is_disable', 0);
 		$this->db->where('b.is_deleted', 0);
-		$this->db->where('a.status', 1);
+		//$this->db->where('a.status', 1);
+		$this->db->order_by('b.plan_id',"desc");
+		$this->db->group_by('f.busi_id');
 		$this->db->limit(12);
 		$query = $this->db->get();
 		$row = $query->result_array();
@@ -751,19 +765,24 @@ class Account_Model extends CI_Model {
 	}
 	public function getFeaturedWorldBuyer()
 	{
-		$this->db->select('a.*, b.id, b.company_country, b.company_province, d.company_owner_name, d.company_introduction, d.contact_person, e.name as contact_person_name, e.picture, e.position  ');
-		$this->db->from(TABLES::$FEATURED_WORLD_BUYER.' as a');
-		$this->db->join(TABLES::$BUSINESS_INFO.' as b', 'a.busi_id = b.id', 'left');
+		$this->db->select('f.id, b.company_country, b.company_province, d.company_owner_name, d.company_introduction, d.contact_person, e.name as contact_person_name, e.picture, e.position,f.busi_id,i.flag,a.name as product_name');
+		//$this->db->from(TABLES::$FEATURED_WORLD_BUYER.' as a');
+		$this->db->from(TABLES::$USER.' AS f'/*, 'b.id= f.busi_id', 'left'*/);
+		$this->db->join(TABLES::$BUSINESS_INFO.' as b', 'f.busi_id = b.id', 'left');
 		$this->db->join(TABLES::$BUSINESS_INFO_IMAGE.' as c', 'b.id = c.busi_id', 'left');
 		$this->db->join(TABLES::$COMPANY_INFO.' as d', 'b.id = d.busi_id', 'left');
-		$this->db->join(TABLES::$CONTACTPERSON.' as e', 'b.id = d.busi_id', 'left');
-		$this->db->join(TABLES::$USER.' AS f', 'b.id= f.busi_id', 'left');
-		$this->db->where ( 'NOW() BETWEEN a.from_date AND a.to_date');
+		$this->db->join(TABLES::$CONTACTPERSON.' as e', 'b.id = e.busi_id', 'left');
+		$this->db->join(TABLES::$COUNTRY.' AS i','b.company_country=i.name','left');
+		$this->db->join(TABLES::$PRODUCT_ITEM.' as a', 'b.id = a.busi_id', 'left');
+		//$this->db->join(TABLES::$USER.' AS f', 'b.id= f.busi_id', 'left');
+		//$this->db->where ( 'NOW() BETWEEN a.from_date AND a.to_date');
 		$this->db->where('f.user_category_id', 3);
-		$this->db->where('b.is_logo_verified', 1);
+		//$this->db->where('b.is_logo_verified', 1);
 		$this->db->where('b.is_disable', 0);
 		$this->db->where('b.is_deleted', 0);
-		$this->db->where('a.status', 1);
+		//$this->db->where('a.status', 1);
+		$this->db->order_by('b.plan_id',"desc");
+		$this->db->group_by('f.busi_id');
 		$this->db->limit(12);
 		$query = $this->db->get();
 		$row = $query->result_array();
@@ -778,7 +797,8 @@ class Account_Model extends CI_Model {
 		$this->db->where('b.is_disable', 0);
 		$this->db->where('b.is_deleted', 0);
 		$this->db->order_by ( "a.created_date", "desc" );
-		$this->db->limit(3);
+		$this->db->group_by('a.id');
+		//$this->db->limit(3);
 		$query = $this->db->get();
 		$row = $query->result_array();
 		return $row;
@@ -791,7 +811,8 @@ class Account_Model extends CI_Model {
 		$this->db->join(TABLES::$ORDER.' as b', 'a.order_id = b.orderid', 'left');
 		$this->db->join(TABLES::$PRODUCT_ITEM.' as c', 'a.item_id = c.id', 'left');
 		$this->db->order_by ( "b.orderid", "desc" );
-		$this->db->limit(3);
+		$this->db->group_by('a.id');
+		//$this->db->limit(3);
 		$query = $this->db->get();
 		$row = $query->result_array();
 		return $row;

@@ -51,7 +51,7 @@
 					</div>
 	<?php } ?>
 	<?php if(count($Videos) <= 0) { ?>
-		This <?php if($bcatinfo[0]['user_category_id'] == 1) { ?>seller<?php } elseif ($bcatinfo[0]['user_category_id'] == 2) { ?>shipper<?php } else { ?>buyer<?php } ?> has not uploaded videos yet.
+		This <?php //if($bcatinfo[0]['user_category_id'] == 1) { ?><!-- seller --><?php //} elseif ($bcatinfo[0]['user_category_id'] == 2) { ?>shipper<?php //} else { ?><!-- buyer --><?php //} ?> has not uploaded videos yet.
 	<?php } ?>
 
 <script>

@@ -450,7 +450,9 @@ class Community extends MX_Controller {
 							}
 						} else {
 							$resp['status'] = 0;
-							$resp['msg'] = 'Oops.. It seems that you have turned this feature OFF.. Please go to " My Station", then click on "Tools" icon, and select " Control Panel", then Turn it ON.';
+							// $resp['msg'] = 'Oops.. It seems that you have turned this feature OFF.. Please go to " My Station", then click on "Tools" icon, and select " Control Panel", then Turn it ON.';
+							$resp['msg'] = 'This buyer in not allow adding to community..';
+							
 						}
 					}
 				} else {

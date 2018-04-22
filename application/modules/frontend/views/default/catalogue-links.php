@@ -8,7 +8,7 @@
 	<a href="javascript:viewNextCatalogueBook(<?php echo $catalogue['id'];?>);">
 	<img src="<?php echo asset_url(); ?>images/vCAT2.png" class="img-responsive carousel_img" style="display: inline-block;width:77px;" >
 	<div style="position:relative;width:65px;top:-70px;left:38px;">
-		<img src="<?php echo asset_url().$catalogue['catalogue_cover']; ?>" class="img-responsive" style="display: inline-block;border-radius:50%;border:2px solid #e55a43;padding: 0px !important;">
+		<img src="<?php echo asset_url().$catalogue['catalogue_cover']; ?>" class="img-responsive" style="display: inline-block;border-radius:50%;border:1px solid #F05539;padding: 0px !important;">
 	</div>
 	</a>
 </div>

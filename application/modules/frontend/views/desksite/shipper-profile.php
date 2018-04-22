@@ -377,7 +377,7 @@ $(document).ready(function() {
     });
     $("#Layer216").stickylayer({
         orientation: 1,
-        position: [70, 60],
+        position: [150, 60],
         delay: 0
     });
     $("a[data-rel='PhotoGallery4']").attr('rel', 'PhotoGallery4');
@@ -688,11 +688,11 @@ function stopWiggle(input) {
 					        <div class="col-md-1 col-sm-1" style="width:120px;">
 					        <br>
 					            <a href="javascript:serviceList(<?php echo $Desksite['busi_id'];?>);" class="product" style="color:#1f90f6;">
-					            	Services
+					            	<span style="font-weight: bold; font-size: 15px; color: white">Services</span>
 								</a>
 					        </div>
-					        <div class="col-md-9 col-sm-9 bg" style="width:82%;padding-left:50px;">
-					            <div class="col-md-5" style="padding-left:35px !important;">
+					        <div class="col-md-9 col-sm-9 bg" style="width:80%;padding-left:0px;">
+					            <div class="col-md-5" style="padding-left:137px !important;">
 						            <a href="javascript:getComapnyProfile(<?php echo $Desksite['busi_id']?>)" class="navigation2 ">
 								     	<img src="<?php echo asset_url(); ?>images/desksite/D-About.png" id="Image60" alt="" class="imgnav" onmouseover="startWiggle(this);" onmouseleave="stopWiggle(this);">
 						            	<p class="font2">Profile</p>
@@ -715,8 +715,8 @@ function stopWiggle(input) {
 								    <p class="font2">My Files</p>
 								    </a>
 						        </div>
-						        <div class="col-md-3">
-						            <a href="javascript:getProductVideo(<?php echo $Desksite['busi_id']?>);" class="navigation2" >
+						        <div class="col-md-3" style="padding-left:50px !important;">
+						            <a href="javascript:getShipperVideos(<?php echo $Desksite['busi_id']?>);" class="navigation2" >
 						                <!--  --><img src="<?php echo asset_url(); ?>images/desksite/D-video.png" id="Image77" alt="" class="imgnav" onmouseover="startWiggle(this);" onmouseleave="stopWiggle(this);">
 						                <p class="font2">Recent Videos</p>
 						            </a>
@@ -729,7 +729,7 @@ function stopWiggle(input) {
 								   <p class="font2">Current  Post</p>
 								   </a>
 						        </div>
-						        <div class="col-md-3" style="width:27%;">
+						        <div class="col-md-3" style="width:21%; padding-left:0px !important;">
 						            <a href="#" class="navigation2" onclick="ShowObjectWithEffect('Layer5', 0, 'slidedown', 500, 'swing');ShowObjectWithEffect('Layer16', 1, 'slidedown', 500, 'swing');return false;">
 								   		<img src="<?php echo asset_url(); ?>images/desksite/offices.png" id="Image75" alt="" class="imgnav" onmouseover="startWiggle(this);" onmouseleave="stopWiggle(this);">
 								   	   	<p class="font5">World-wide  Offices</p>
@@ -744,12 +744,12 @@ function stopWiggle(input) {
 								   	</a>
 						        </div>
 					    	</div>
-					    	<div class="col-md-2 col-sm-2  bg121" style="width:100px;">
+					    	<!-- <div class="col-md-2 col-sm-2  bg121" style="width:100px;">
 					        	<a href="#" class="navigation2" style="display:none;">
-							   		<img src="<?php echo asset_url(); ?>images/system-shutdown-5.png" id="Image47" alt="" class="imgnav" onmouseover="startWiggle(this);" onmouseleave="stopWiggle(this);" style="width:45px;">
+							   		<img src="<?php //echo asset_url(); ?>images/system-shutdown-5.png" id="Image47" alt="" class="imgnav" onmouseover="startWiggle(this);" onmouseleave="stopWiggle(this);" style="width:45px;">
 							   	   <p class="font2" style="width:87px;">Switch to <br> Classic Mode</p>
 							   </a>
-					    	</div>
+					    	</div> -->
 						</div>
 					</div>
 				</div>
@@ -771,7 +771,7 @@ function stopWiggle(input) {
 			    </div>
 			    <!-- verified member end -->
 			    <!-- product popup -->
-			    <div id="Layer44" class="box1" onmouseleave="ShowObjectWithEffect('Layer18', 0, 'slidedown', 500);return false;" style="position:fixed;top:30px;width:863px;padding:15px;">
+			    <div id="Layer44" class="box1" onmouseleave="ShowObjectWithEffect('Layer18', 0, 'slidedown', 500);return false;" style="position:fixed;top:30px;width:1186px;padding:15px;left:232px !important;">
 			        <a href="#" onclick="ShowObjectWithEffect('Layer5', 1, 'slidedown', 500);ShowObjectWithEffect('Layer44', 0, 'slidedown', 300, 'swing');return false;">
 						<img src="<?php echo asset_url(); ?>images/closeround.png" id="Image135" alt="" class="imgre" style="left:98%;">
 					</a>
@@ -790,7 +790,7 @@ function stopWiggle(input) {
 				        <a href="#" onclick="ShowObjectWithEffect('Layer5', 1, 'slidedown', 500);ShowObjectWithEffect('Layer23', 0, 'slidedown', 300, 'swing');return false;">
 							<img src="<?php echo asset_url(); ?>images/closeround.png" id="Image135" alt="" class="imgre" style="left:96%;">
 						</a>
-				        <p class="box1font3" style="padding-left:0px;"><img src="<?php echo asset_url(); ?>images/about.png" alt="" class="img32"> &nbsp;&nbsp;&nbsp;ABOUT US</p>
+				        <p class="box1font3" style="padding-left:0px;"><img src="<?php echo asset_url(); ?>images/desksite/D-company.png" alt="" class="img32"> &nbsp;&nbsp;&nbsp;ABOUT US</p>
 				        <div class="box2" id="about-us" style="height: 540px;overflow-y:scroll;padding-top:0px;">
 				            
 				        </div>
@@ -800,13 +800,13 @@ function stopWiggle(input) {
 			
 			<!-- about us end -->
 			<!-- certification -->
-			<div id="Layer144" style="position:absolute;text-align:center;visibility:hidden;left:0;right:0;margin:0 auto;top:126px;width:61%;height:554px;z-index:3853;">
+			<div id="Layer144" style="position:absolute;text-align:center;visibility:hidden;left:0;right:0;margin:0 auto;top:100px;width:61%;height:554px;z-index:3853;">
 				<div id="Layer144_Container" style="width:788px;text-align:left;">
 					<div id="Layer145" class="a4">
 				        <a href="#" onclick="ShowObjectWithEffect('Layer5', 1, 'slidedown', 500);ShowObjectWithEffect('Layer144', 0, 'slidedown', 300, 'swing');return false;">
 							<img src="<?php echo asset_url(); ?>images/closeround.png" id="Image135" alt="" class="imgre" style="left:96%;">
 						</a>
-				        <p class="box1font3" style="padding: 5px 0px;"><img src="<?php echo asset_url(); ?>images/certificates.png" alt="" class="img32"> &nbsp;&nbsp;&nbsp;COMPANY LICENSE AND CERTIFICATES</p>
+				        <p class="box1font3" style="padding: 5px 0px;"><img src="<?php echo asset_url(); ?>images/desksite/D-certificates.png" alt="" class="img32"> &nbsp;&nbsp;&nbsp;COMPANY LICENSE AND CERTIFICATES</p>
 			       		<div id="Layer147">  </div>
 				    </div>
 			    </div>
@@ -817,7 +817,7 @@ function stopWiggle(input) {
 			<div id="Layer48" class="box1" style="left:0;right:0;margin:0 auto; top:3%;width: 316px;padding:15px;">
 			    <a href="#" onclick="ShowObjectWithEffect('Layer5', 1, 'slidedown', 500);ShowObjectWithEffect('Layer48', 0, 'slidedown', 300, 'swing');return false;">
 				 	<img src="<?php echo asset_url(); ?>images/closeround.png" id="Image135" alt="" class="imgre"></a>
-			    <p class="box1font3" style="padding-left:0px;"><img src="<?php echo asset_url(); ?>images/barcompany-profile.png" alt="" class="img32"> &nbsp;&nbsp;&nbsp;COMPANY PROFILE
+			    <p class="box1font3" style="padding-left:0px;"><img src="<?php echo asset_url(); ?>images/desksite/D-About.png" alt="" class="img32"> &nbsp;&nbsp;&nbsp;COMPANY PROFILE
 			   </p>
 			    <div>
 			        <div class="box2" id="company-profile" style=" height: 642px;">
@@ -841,7 +841,7 @@ function stopWiggle(input) {
 			<!-- advantages ends-->
 			
 			<!-- Routes -->
-			<div id="Layer33" class="box1 a3" style="left:0;right:0;margin:0 auto;width:314px;padding:15px;">
+			<div id="Layer33" class="box1 a3" style="left:0;right:0;margin:0 auto;width:314px;padding:15px;top:110px;">
 			    <div id="Layer79_Container">
 			        <a href="#" onclick="ShowObjectWithEffect('Layer5', 1, 'slidedown', 500);ShowObjectWithEffect('Layer33', 0, 'slidedown', 300, 'swing');return false;">
 							<img src="<?php echo asset_url(); ?>images/closeround.png" id="Image135" alt="" class="imgre" style="left:94%;">
@@ -854,16 +854,16 @@ function stopWiggle(input) {
 			<!-- routes ends-->
 			
 			<!-- my files -->
-			<div id="Layer148" style="position:absolute;text-align:center;visibility:hidden;left:0;right:0;margin:0 auto;top:198px;width:53%;height:462px;z-index:3850;">
+			<div id="Layer148" style="position:absolute;text-align:center;visibility:hidden;left:0;right:0;margin:0 auto;top:110px;width:53%;height:462px;z-index:3850;">
 				<div id="Layer148_Container" style="width:432px;text-align:left;">
-					<div id="Layer150" style="position:absolute;text-align:left;left:65px;top:28px;width:517px;height:402px;z-index:3616;">
+					<div id="Layer150" style="position:absolute;text-align:left;left:30px;top:28px;width:517px;height:402px;z-index:3616;">
 				        <a href="#" onclick="ShowObjectWithEffect('Layer5', 1, 'slidedown', 500);ShowObjectWithEffect('Layer148', 0, 'slidedown', 300, 'swing');return false;">
 							<img src="<?php echo asset_url(); ?>images/closeround.png" id="Image135" alt="" class="imgre" style="left:96%;">
 						</a>
-				        <p class="box1font3" style="padding:5px 0px;"><img src="<?php echo asset_url(); ?>images/my_file.png" alt="" class="img32"> &nbsp;&nbsp;&nbsp;MY FILES</p>
+				        <p class="box1font3" style="padding:5px 0px;"><img src="<?php echo asset_url(); ?>images/desksite/D-files.png" alt="" class="img32"> &nbsp;&nbsp;&nbsp;MY FILES</p>
 				        <div class="box22 blackbox" id="my-files" style="height:325px;">
 				           
-				        </div>
+				        </div>Layer148
 				    </div>
 			    </div>
 			</div>
@@ -901,7 +901,7 @@ function stopWiggle(input) {
 					</a>
 				    <div class="inline">
 				        <br>
-				        <p class="box1font1 w1"><img src="<?php echo asset_url(); ?>images/community.png" id="Image21" alt="" class="img32">ADD & SHARE</p>
+				        <p class="box1font1 w1"><img src="<?php echo asset_url(); ?>images/desksite/D-contact.png" id="Image21" alt="" class="img32">ADD & SHARE</p>
 				    </div>
 				    <div class="inline box5">
 				        <img src="<?php echo asset_url(); ?>images/MENUFAVORITE.png" id="Image19" alt="" class="img32">
@@ -1013,7 +1013,7 @@ function stopWiggle(input) {
 			</div>
 			<!-- contact us form end -->
 				<!-- contact person -->
-				<div id="Layer62" style="position:absolute;text-align:right;visibility:hidden;left:0;right:0;margin:0 auto;top:166px;width:51%;height:447px;z-index:3854;">
+				<div id="Layer62" style="position:absolute;text-align:right;visibility:hidden;left:0;right:0;margin:0 auto;top:140px;width:51%;height:447px;z-index:3854;">
 					<div id="Layer62_Container" style="width:656px;text-align:left;">
 						<div id="Layer63" class="a1">
 					        <a href="#" onclick="ShowObjectWithEffect('Layer5', 1, 'slidedown', 500);ShowObjectWithEffect('Layer62', 0, 'slidedown', 300, 'swing');return false;">
@@ -1027,7 +1027,7 @@ function stopWiggle(input) {
 				</div>
 				<!-- contact person end -->
 			<!-- world wide offices -->
-			<div id="Layer16" style="position:absolute;text-align:right;visibility:hidden;left:0;right:0;margin:0 auto;top:225px;width:51%;height:411px;z-index:3863;">
+			<div id="Layer16" style="position:absolute;text-align:right;visibility:hidden;left:0;right:0;margin:0 auto;top:140px;width:51%;height:411px;z-index:3863;">
 				<div id="Layer16_Container" style="width:656px;text-align:left;">
 					<div id="Layer15" class="s9" style="height:285px;">
 				        <a href="#" onclick="ShowObjectWithEffect('Layer5', 1, 'slidedown', 500);ShowObjectWithEffect('Layer16', 0, 'slidedown', 300, 'swing');return false;">
@@ -1090,7 +1090,7 @@ function stopWiggle(input) {
 							<img src="<?php echo asset_url(); ?>images/closeround.png" id="Image135" alt="" class="imgre" style="left:96%;">
 					    </a>
 					    <p class="box1font3" style="padding:0px;">
-				        	<img src="<?php echo asset_url(); ?>images/buyer-request.png" alt="" class="img32">
+				        	<img src="<?php echo asset_url(); ?>images/desksite/D-posts.png" alt="" class="img32">
 				        	<span style="color:#FFFFFF;font-family:Georgia;font-size:13px;"><strong> &nbsp;&nbsp;&nbsp;POSTS & CURRENT REQUESTS</strong></span>
 				        </p>
 					    <div class="greybox center" id="post" style="height:570px;">
@@ -1120,7 +1120,7 @@ function stopWiggle(input) {
 						   	<a href="# " onclick="ShowObjectWithEffect( 'Layer5', 1, 'slidedown', 500);ShowObjectWithEffect( 'Layer72', 0, 'slidedown', 300, 'swing');return false; ">
 								<img src="<?php echo asset_url(); ?>images/closeround.png" id="Image135" alt="" class="imgre" style="left: 96%;">
 						   	</a>
-						    <p class="box1font3" style="padding-left:0px;"><img src="<?php echo asset_url(); ?>images/udLOGO.png" alt="" class="img32"> &nbsp;&nbsp;&nbsp;AMAZING BUSINESS COMMUNICATION APP</p>
+						    <p class="box1font3" style="padding-left:0px;"><img src="<?php echo asset_url(); ?>images/desksite/UD.png" alt="" class="img32"> &nbsp;&nbsp;&nbsp;AMAZING BUSINESS COMMUNICATION APP</p>
 						    <div class="box732" id="ud-talk" style="height:495px;background-color: #DCDCDC;border: 1px #FFFFFF solid;padding:10px;overflow-y: scroll;overflow-x: hidden;">
 						    	<br>
 							   	<div id="wb_Text93" style="text-align:center;">
@@ -1160,7 +1160,7 @@ function stopWiggle(input) {
 								<img src="<?php echo asset_url(); ?>images/closeround.png" id="Image135" alt="" class="imgre" style="left:96%;">
 							 </a>
 							<p class="box1font3" style="padding-left: 0px;">
-								<img src="<?php echo asset_url(); ?>images/videos2.ico" alt="" class="img32"> &nbsp;&nbsp;&nbsp;PRODUCTS IN VIDEOS
+								<img src="<?php echo asset_url(); ?>images/desksite/D-video.png" alt="" class="img32"> &nbsp;&nbsp;&nbsp;PRODUCTS IN VIDEOS
 							</p>
 							<div class="box662">
 								<div id="vcarousel" class="carousel slide" data-ride="carousel">
@@ -1283,7 +1283,7 @@ function get3DProduct(id) {
 			
 	},'html');
 }
-function getProductVideo(id) {
+function getShipperVideos(id) {
 	$.get(base_url+"desksite/video/shipper/"+id,{},function(data) {
 		$("#product-video").html(data);
 		ShowObjectWithEffect('Layer5', 0, 'slidedown', 500, 'swing');
@@ -1300,12 +1300,13 @@ function getCurrentPost(id) {
 	},'html');
 }
 
-function serviceList(busi_id) {
-	$.get(base_url+"desksite/shipper/services/"+busi_id,{},function(data) {
-		$("#my-services").html(data);
-		ShowObjectWithEffect( 'Layer44', 1, 'slidedown', 500, 'swing');
-	},'html');
-}
+        function serviceList(busi_id) {
+        	$.get(base_url+"desksite/shipper/services/"+busi_id,{},function(data) {
+        		$("#my-services").html(data);
+                ShowObjectWithEffect( 'Layer5', 0, 'slidedown', 500, 'swing');
+        		ShowObjectWithEffect( 'Layer44', 1, 'slidedown', 500, 'swing');
+        	},'html');
+        }
 
 function openChatWithBuyer(seller_id) {
 	<?php if(!empty($tsuserid)) { ?>
@@ -1587,6 +1588,7 @@ function resetForm() {
 	document.contactusfrm.reset();
 }
 $(document).ready(function() {
+    $('.loader').removeClass('loader');
     $("body").on("contextmenu",function(){
        return false;
     }); 

@@ -34,18 +34,19 @@
 				  			<div class="col-sm-2" style="padding-top: 25px;">
 				  				<input type="checkbox" id="catalogue_chk_id" name="catalogue_chk_id" value="<?php echo $catalogue['id'];?>" />
 				  			</div>
-				  			<div style="width:35px;height:34px;z-index:1;position: relative;top: 171px;left: 81px;z-index: 1;">
+				  			<div style="width:35px;height:34px;z-index:1;position: relative;top: 251px;left: 73px;">
 									<img src="<?php echo asset_url();?>images/img0001.gif" alt="" style="width:10px;height:34px;">
 								</div>
-				  			<div class="col-sm-5" style="width: 200px;height: 231px;padding-top: 105px;background-image:url('<?php echo asset_url();?>images/vCAT2.png')" >
-				  				<div style="padding-left: 54px;z-index: 4">
-				  					<img src="<?php echo asset_url();?><?php echo $catalogue['catalogue_cover'];?>"  style="width:90px;height:88px;border-radius:50%;">
+				  			<div class="col-sm-5" style="width: 220px;height: 328px;padding-top: 105px;background-image:url('<?php echo asset_url();?>images/vCAT2.png')" >
+				  				<br/>
+				  				<div style="padding-left: 23px;z-index: 4;">
+				  					<img src="<?php echo asset_url();?><?php echo $catalogue['catalogue_cover'];?>"  style="width:160px;height:155px;border-radius:50%;border:1.5px solid #F05539">
 				  				</div>
 				  				<!--<span style="background-color:#F05539;color:#FFFFFF;font-family:Georgia;font-size:13px;"><strong><?php echo $catalogue['catalogue_title'];?> </strong></span>-->
 				  				<!--<span style="color:#FFFFFF;font-family:Georgia;font-size:13px;"><strong>BABY NEW COLLECTION </strong></span>-->
 				  				
-				  				<div id="Layer232" style="text-align:left;width:170px;height:30px;z-index:4;background-color: #1E90FF;position: relative;left:-10px;">
-									<div id="wb_Text2" style="width:191px;height:30px;text-align:center;z-index:0;padding-top:5px;">
+				  				<div id="Layer232" style="text-align:left;width:190px;height:30px;z-index:4;background-color: #1E90FF;position: relative;left:-18px;top:-5px;">
+									<div id="wb_Text2" style="width:192px;height:30px;text-align:center;z-index:0;padding-top:5px;">
 										<span style="color:#FFFFFF;font-family:Georgia;font-size:13px;"><strong><?php echo $catalogue['catalogue_title'];?></strong></span>
 									</div>
 								</div>

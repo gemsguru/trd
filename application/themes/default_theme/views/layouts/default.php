@@ -114,7 +114,8 @@ function chat_with(user_id,accept_chat=true)
 			jqcc.cometchat.chatWith(user_id);
     		document.getElementById('cometchat_chatboxes').style.right='0px';
 		}else{
-			customAlert('Sorry.. User status is " Don\'t Disturb".. Please try again later, status may be changed soon.');
+			// customAlert('Sorry.. User status is " Don\'t Disturb".. Please try again later, status may be changed soon.');
+			customAlert('This buyer in not allow chat feature..');
 		}
     <?php }else{ ?>
     	alert("PLEASE LOGIN TO CHAT");
