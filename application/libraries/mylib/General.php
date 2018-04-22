@@ -61,4 +61,9 @@ class General {
 		$this->CI->load->model ( 'Account_Model', 'account' );
 		return $res = $this->CI->account->getProductCategories();
 	}
+	public  function getProductSubCategories()
+	{
+		$this->CI->load->model ( 'Account_Model', 'account' );
+		return $res = $this->CI->account->getProductSubCategories();
+	}
 }

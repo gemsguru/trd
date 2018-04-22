@@ -2,11 +2,12 @@ function openHomePage() {
 	$("#main-page-lock").slideUp("slow");
 	$("#main-page").show();
 	$('.slider').slick('unslick'); /* ONLY remove the classes and handlers added on initialize */
-    $('.slider').slick({
-        infinite: true,
-        slidesToShow: 4,
-        slidesToScroll: 1
-    });
+        $('.slider').slick({
+           infinite: false,
+            speed: 300,
+            slidesToShow: 7,
+            slidesToScroll: 7
+        });
 }
 
 function termscondition(type)

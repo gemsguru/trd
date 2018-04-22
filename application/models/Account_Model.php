@@ -658,6 +658,15 @@ class Account_Model extends CI_Model {
 		$row = $query->result_array();
 		return $row;
 	}
+	public function getProductSubCategories()
+	{
+		$this->db->select('*');
+		$this->db->from(TABLES::$PRODUCT_SUB_CATEGORY);
+		$this->db->order_by ( "name", "asc" );
+		$query = $this->db->get();
+		$row = $query->result_array();
+		return $row;
+	}
 	public function getDesksites()
 	{
 		$this->db->select('a.*, b.desksite_bg1, b.desksite_bg2, c.company_introduction');

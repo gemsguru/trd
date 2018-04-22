@@ -32,7 +32,7 @@ function viewCatalogueBook(id) {
 			 +'<li class="share-button"><label style="width:70px;height:70px;border-radius:50%;border:1px solid #fff;background-color:#24A7DB;color:#fff;text-align:center;line-height:15px;padding-top:20px;">Views<br> <span id="vdiv'+data.id+'">'+data.views+'</span></label></li>'
 			 +'<li class="share-button"><label style="width:70px;height:70px;border-radius:50%;border:1px solid #fff;background-color:#32AA2B;color:#fff;text-align:center;line-height:15px;padding-top:20px;">Likes<br> <span id="sdiv'+data.id+'">'+data.likes+'<span></label></li>'
 			 +'</ul>'
-			 +'<div id="RollOver5" class="" style="position:absolute;left: 30px;top: 245px;width:35px;height:35px;z-index:380;" onclick="chat_with('data.user_id','data.accept_chat')">'
+			 +'<div id="RollOver5" class="" style="position:absolute;left: 30px;top: 245px;width:35px;height:35px;z-index:380;" onclick="chat_with("'+data.user_id+'","'+data.accept_chat+'")">'
 			 +'<a>'
 			 +'<img class="hover" src="<?php echo asset_url()?>images/chatwhite.png" alt="view">'
 			 +'<span><img alt="View" src="<?php echo asset_url()?>images/chat_button2.png"></span>'

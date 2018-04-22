@@ -1,5 +1,5 @@
 <nav class="navbar" style="background: none; border: 0px; margin-bottom: 0px; border-radius: 0px;">
-	<div class="">
+	<div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
 	<div class="row">
 			<div class="col-lg-2 col-sm-4 logo">

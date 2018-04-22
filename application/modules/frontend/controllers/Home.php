@@ -14,15 +14,15 @@ class Home extends MX_Controller {
 		$fb_config = parse_ini_file ( APPPATH . "config/FB.ini" );
 		$this->load->model ( 'Account_Model', 'account' );
 	}
-	public function index() {
+	public function index() { 
 		$this->load->library('mylib/General');
 		$this->load->model ( 'Account_Model', 'account' );
 		$subcategories = $this->general->getUserSubCategories();
 		$this->template->set ( 'subcategories', $subcategories);
 		$procategories = $this->general->getProductCategories();
 		$this->template->set ( 'procategories', $procategories);
-		$procategories = $this->general->getProductCategories();
-		$this->template->set ( 'procategories', $procategories);
+		$prosubcategories = $this->general->getProductSubCategories();
+		$this->template->set ( 'prosubcategories', $prosubcategories);
 		$desksites= $this->account->getDesksites();
 		$this->template->set ( 'desksites', $desksites);
 		$vCatalogues= $this->account->getVCatalogue();
